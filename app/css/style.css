@@ -31,8 +31,8 @@ p {
 
 .parallax img {
   display: inline-flex;
-  max-width: 190%;
-  max-height: 190%;
+  max-width: 200%;
+  max-height: 180%;
   top: 0;
   z-index: -5;
 }
@@ -62,4 +62,29 @@ p {
 
 footer.page-footer {
   margin: 0;
+}
+
+ul {
+  margin: 0 auto;
+}
+
+input[type=range]+.thumb {
+  background-color: #00e676;
+}
+
+input[type=range]+.thumb:active {
+  background-color: #00e676;
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+  background-color: #00e676;
+}
+
+input[type=range]::-moz-range-thumb {
+  background-color: #00e676;
+}
+
+input[type=range]::-ms-thumb {
+  background-color: #00e676;
 }

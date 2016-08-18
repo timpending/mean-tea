@@ -7,18 +7,35 @@
       <div class="card-stacked">
         <div class="card-content">
           <h4>{{tea.name}}</h4>
-          <div class='col s6 m5 l5 left'>
-          <p><strong>Caffiene:</strong> {{tea.caffeineScale}}</p>
-          <p><strong>Ingredients:</strong> {{tea.ingredients}}</p>
+          <div class='row'>
+          <div class='col s6 m5 l5'>
+            <p><strong>Ingredients:</strong></p><p>{{tea.ingredients}} </p>
+            <br>
+            <p><strong>Categories: </strong><ul><li ng-repeat='category in tea.categories'>{{category}} </li></ul></p>
           </div>
           <div class='col s6 m5 l5 right'>
+            <p><strong>Caffiene:</strong> {{tea.caffeineScale}} mg</p>
             <h6><strong>Price:</strong> {{tea.price | pricer}}</h6>
-            <p><strong>InStock:</strong> {{tea.inStock}}</p>
+            <p><strong>In Stock:</strong> {{tea.inStock | stocker}}</p>
             <p><strong>Rating:</strong> {{tea.rating}}</p>
           </div>
         </div>
+      </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <div class='row'>
+          <form action="#">
+          <div class='col s3 m2 l2'>
+              <p><strong>Quantity: </strong></p>
+          </div>
+          <div class='col s6 m6 l5'>
+            <p class="range-field">
+              <input type="range" value="0" min="0" max="30" step='1' />
+            </p>
+          </div>
+            <div class='col s3 m4 l5'>
+              <a class="waves-effect waves-light btn green accent-3 right"><i class="material-icons left">add</i>Add to Bag</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>
