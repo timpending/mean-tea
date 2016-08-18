@@ -1,0 +1,26 @@
+<div ng-repeat='tea in view.teaArray'>
+  <div class="col s12 m10">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img ng-src={{tea.imageUrl}} />
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h4>{{tea.name}}</h4>
+          <div class='col s6 m5 l5 left'>
+          <p><strong>Caffiene:</strong> {{tea.caffeineScale}}</p>
+          <p><strong>Ingredients:</strong> {{tea.ingredients}}</p>
+          </div>
+          <div class='col s6 m5 l5 right'>
+            <h6><strong>Price:</strong> {{tea.price}}</h6>
+            <p><strong>InStock:</strong> {{tea.inStock}}</p>
+            <p><strong>Rating:</strong> {{tea.rating}}</p>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
