@@ -11,7 +11,6 @@
     <base href="/">
   </head>
   <body>
-    <div ng-controller='NavController'>
     <div id="index-banner" class="parallax-container">
       <div class="section no-pad-bot">
         <div class="container">
@@ -29,42 +28,40 @@
       <div class="parallax"><img src="bg.jpg" alt="Mean Tea Background"></div>
     </div>
 
-    <nav class="white" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo">Tea Like You Mean It</a>
-        <ul class="right hide-on-med-and-down">
-          <li><input type='search' placeholder="Search by Name" ng-model='view.searchText' /></li>
-          <li><a class="dropdown-button" href="#!" data-activates="categoryDrop">Category Filter<i class="material-icons right">arrow_drop_down</i></a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="priceDrop">Sort By Price<i class="material-icons right">arrow_drop_down</i></a></li>
-        </ul>
+    <!-- <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="#" class="brand-logo">Tea Like You Mean It</a>
+          <ul class="right hide-on-med-and-down">
+            <li><input type='search' placeholder="Search by Name" ng-model='view.searchText' /></li>
+            <li><a class="dropdown-button" href="#!" data-activates="categoryDrop">Category Filter<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="priceDrop">Sort By Price<i class="material-icons right">arrow_drop_down</i></a></li>
+          </ul>
 
-        <ul id='categoryDrop' class='dropdown-content'>
-          <li ng-repeat='category in view.categoryArray' value='category'><a href='#!'>{{category}}</a></li>
-        </ul>
-        <ul id='priceDrop' class='dropdown-content'>
-            <li><a href='#!' ng-click='view.sortByPrice()' ng-model='priceSortSelection'>Lowest</a></li>
-            <li><a href='#!' ng-click='view.sortByPrice()' ng-model='priceSortSelection'>Highest</a></li>
-        </ul>
+          <ul id='categoryDrop' class='dropdown-content'>
+            <li><a href='#!'>hello</a></li>
+            <li><a href='#!'>goodbye</a></li>
+          </ul>
+          <ul id='priceDrop' class='dropdown-content'>
+              <li ng-click="sortByPrice()"><a href='#!'>Lowest</a></li>
+              <li ng-click="sortByPrice()"><a href='#!'>Highest</a></li>
+          </ul> -->
 
-        <!-- <ul id="nav-mobile" class="side-nav">
-          <li><input type='search' placeholder="Search by Name" /></li>
-          <li>
-            <select>
-              <option disabled="">Category Filter</option>
-              <option ng-repeat='category in view.teaArray.categories' value='category'>{{category}}</option>
-            </select>
-          </li>
-          <li><a href'#'>Sort By Price</a></li>
-        </ul> -->
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
-  </div>
-    <div class='container'>
-      <div class='section'>
-        <div ng-view></div>
-      </div>
-    </div>
+          <!-- <ul id="nav-mobile" class="side-nav">
+            <li><input type='search' placeholder="Search by Name" /></li>
+            <li>
+              <select>
+                <option disabled="">Category Filter</option>
+                <option ng-repeat='category in view.teaArray.categories' value='category'>{{category}}</option>
+              </select>
+            </li>
+            <li><a href'#'>Sort By Price</a></li>
+          </ul> -->
+          <!-- <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+      </nav> -->
+
+    <div ng-view></div>
+
 
     <div class="footer-copyright">
       <div class="container">
@@ -77,16 +74,17 @@
 
     <!-- ~~~~~~~~~~~~~~~~~ SCRIPTEES ~~~~~~~~~~~~~~~~~~~~-->
 
-    <!-- Angular -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js'></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+    <!-- Materialize + jQuery + Angular -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js'></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.9/angular-materialize.min.js"></script>
     <!-- Internal App -->
     <script type="text/javascript" src='js/app.js'></script>
     <script type="text/javascript" src='js/controllers.js'></script>
     <script type="text/javascript" src='js/services.js'></script>
     <script type="text/javascript" src='js/filters.js'></script>
-    <!-- Materialize + jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
   </body>
 </html>

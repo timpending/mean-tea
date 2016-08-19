@@ -1,47 +1,81 @@
-<div ng-controller='InventoryController'>
-<div ng-repeat="tea in view.teaArray | orderBy: view.priceOrderer | filter: view.searchText">
-  <div class="col s12 m10">
-    <div class="card horizontal">
-      <div class="card-image">
-        <img ng-src={{tea.imageUrl}} />
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h4>{{tea.name}}</h4>
-          <div class='row'>
-          <div class='col s6 m5 l5'>
-            <p><strong>Ingredients:</strong></p><p>{{tea.ingredients}} </p>
-            <br>
-            <p><strong>Categories: </strong><ul><li ng-repeat='category in tea.categories'>{{category}} </li></ul></p>
-          </div>
-          <div class='col s6 m5 l5 right'>
-            <p><strong>Caffiene:</strong> {{tea.caffeineScale}} mg</p>
-            <h6><strong>Price:</strong> {{tea.price | pricer}}</h6>
-            <p><strong>In Stock:</strong> {{tea.inStock | stocker}}</p>
-            <p><strong>Rating:</strong> {{tea.rating}}</p>
-          </div>
-        </div>
-      </div>
-        <div class="card-action">
-          <div class='row'>
-          <form action="#">
-          <div class='col s3 m2 l2'>
-              <p><strong>Quantity: </strong></p>
-          </div>
-          <div class='col s6 m6 l5'>
-            <p class="range-field">
-              <input type="range" value="0" min="0" max="20" step='1' />
-            </p>
-          </div>
-            <div class='col s3 m4 l5'>
-              <p>
-              <a class="waves-effect waves-light btn green accent-3 right"><i class="material-icons left">add</i>Add to Bag</a></p>
+<nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Tea Like You Mean It</a>
+      <ul class="right hide-on-med-and-down">
+        <li><input type='search' placeholder="Search by Name" ng-model='view.searchText' /></li>
+        <li><a class="dropdown-button" href="javascript:void(0);" data-activates="categoryDrop" dropdown>Category Filter<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" href="javascript:void(0);" data-activates="priceDrop" dropdown>Sort By Price<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+
+      <ul id='categoryDrop' class='dropdown-content'>
+        <li><a href='javascript:void(0);'>hello</a></li>
+        <li><a href='javascript:void(0);'>goodbye</a></li>
+      </ul>
+      <ul id='priceDrop' class='dropdown-content'>
+          <li ng-click="sortByPrice()"><a href='javascript:void(0);'>Lowest</a></li>
+          <li ng-click="sortByPrice()"><a href='javascript:void(0);'>Highest</a></li>
+      </ul>
+
+      <!-- <ul id="nav-mobile" class="side-nav">
+        <li><input type='search' placeholder="Search by Name" /></li>
+        <li>
+          <select>
+            <option disabled="">Category Filter</option>
+            <option ng-repeat='category in view.teaArray.categories' value='category'>{{category}}</option>
+          </select>
+        </li>
+        <li><a href'#'>Sort By Price</a></li>
+      </ul> -->
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class='container'>
+    <div class='section'>
+      <div ng-repeat="tea in view.teaArray | orderBy: 'price' | filter: view.searchText">
+        <div class="col s12 m10">
+          <div class="card horizontal">
+            <div class="card-image">
+              <img ng-src={{tea.imageUrl}} />
             </div>
-          </form>
+            <div class="card-stacked">
+              <div class="card-content">
+                <h4>{{tea.name}}</h4>
+                <div class='row'>
+                <div class='col s6 m5 l5'>
+                  <p><strong>Ingredients:</strong></p><p>{{tea.ingredients}} </p>
+                  <br>
+                  <p><strong>Categories: </strong><ul><li ng-repeat='category in tea.categories'>{{category}} </li></ul></p>
+                </div>
+                <div class='col s6 m5 l5 right'>
+                  <p><strong>Caffiene:</strong> {{tea.caffeineScale}} mg</p>
+                  <h6><strong>Price:</strong> {{tea.price | pricer}}</h6>
+                  <p><strong>In Stock:</strong> {{tea.inStock | stocker}}</p>
+                  <p><strong>Rating:</strong> {{tea.rating}}</p>
+                </div>
+              </div>
+            </div>
+              <div class="card-action">
+                <div class='row'>
+                <form action="#">
+                <div class='col s3 m2 l2'>
+                    <p><strong>Quantity: </strong></p>
+                </div>
+                <div class='col s6 m6 l5'>
+                  <p class="range-field">
+                    <input type="range" value="0" min="0" max="20" step='1' />
+                  </p>
+                </div>
+                  <div class='col s3 m4 l5'>
+                    <p>
+                    <a class="waves-effect waves-light btn green accent-3 right"><i class="material-icons left">add</i>Add to Bag</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-</div>

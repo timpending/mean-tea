@@ -4,7 +4,7 @@ app.service('InventoryService', function($http){
       return $http.get('tea.json')
     },
     getCategories: function() {
-      var categoryArray = [];
+      var categoryArray = []
       return $http.get('tea.json').then(function(results){
         results.data.forEach(function(result){
           result.categories.forEach(function(category){
@@ -16,6 +16,7 @@ app.service('InventoryService', function($http){
         return categoryArray
       })
     },
-    searchText: ''
+    searchText: '',
+    priceOrderer: '',
   }
 });
