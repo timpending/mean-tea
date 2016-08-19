@@ -13,9 +13,9 @@ app.service('InventoryService', function($http){
             }
           })
         })
-        console.log(categoryArray);
         return categoryArray
       })
-    }
+    },
+    // priceOrderer: '-price'
   }
 });

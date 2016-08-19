@@ -33,15 +33,19 @@
       <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo">Tea Like You Mean It</a>
         <ul class="right hide-on-med-and-down">
-          <li><input type='search' placeholder="Search by Name" /></li>
+          <li><input type='search' placeholder="Search by Name" ng-model='view.searchText' /></li>
           <li><a class="dropdown-button" href="#!" data-activates="categoryDrop">Category Filter<i class="material-icons right">arrow_drop_down</i></a></li>
-          <li><a href'#'>Sort By Price</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="priceDrop">Sort By Price<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
 
-        <ul id="categoryDrop" class="dropdown-content">
-
+        <ul id='categoryDrop' class='dropdown-content'>
           <li ng-repeat='category in view.categoryArray' value='category'><a href='#!'>{{category}}</a></li>
         </ul>
+        <ul id='priceDrop' class='dropdown-content'>
+            <li ng-click='sortByPrice()' ng-model='view.priceSortSelection' value='price'><a href='#!'>Lowest</a></li>
+            <li ng-click='sortByPrice()' ng-model='view.priceSortSelection' value='-price'><a href='#!'>Highest</a></li>
+        </ul>
+
         <!-- <ul id="nav-mobile" class="side-nav">
           <li><input type='search' placeholder="Search by Name" /></li>
           <li>
