@@ -16,6 +16,6 @@ app.service('InventoryService', function($http){
         return categoryArray
       })
     },
-    // priceOrderer: '-price'
+    searchText: ''
   }
 });

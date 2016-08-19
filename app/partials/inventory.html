@@ -1,5 +1,5 @@
 <div ng-controller='InventoryController'>
-<div ng-repeat="tea in view.teaArray | orderBy: view.priceOrderer">
+<div ng-repeat="tea in view.teaArray | orderBy: view.priceOrderer | filter: view.searchText">
   <div class="col s12 m10">
     <div class="card horizontal">
       <div class="card-image">

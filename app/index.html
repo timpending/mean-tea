@@ -42,8 +42,8 @@
           <li ng-repeat='category in view.categoryArray' value='category'><a href='#!'>{{category}}</a></li>
         </ul>
         <ul id='priceDrop' class='dropdown-content'>
-            <li ng-click='sortByPrice()' ng-model='view.priceSortSelection' value='price'><a href='#!'>Lowest</a></li>
-            <li ng-click='sortByPrice()' ng-model='view.priceSortSelection' value='-price'><a href='#!'>Highest</a></li>
+            <li><a href='#!' ng-click='view.sortByPrice()' ng-model='priceSortSelection'>Lowest</a></li>
+            <li><a href='#!' ng-click='view.sortByPrice()' ng-model='priceSortSelection'>Highest</a></li>
         </ul>
 
         <!-- <ul id="nav-mobile" class="side-nav">
