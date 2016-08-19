@@ -4,3 +4,10 @@ app.controller('InventoryController', function($scope, InventoryService){
     $scope.view.teaArray = allTeas.data
   })
 });
+
+app.controller('NavController', function($scope, InventoryService){
+  $scope.view = {};
+  InventoryService.getCategories().then(function(results){
+    $scope.view.categoryArray = results
+  })
+})

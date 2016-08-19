@@ -60,6 +60,10 @@ p {
   font-size: inherit;
 }
 
+nav {
+  color: #000;
+}
+
 footer.page-footer {
   margin: 0;
 }
