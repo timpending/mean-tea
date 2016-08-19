@@ -29,4 +29,8 @@ app.controller('InventoryController', function($scope, InventoryService, $route)
 app.controller('CheckoutController', function($scope, InventoryService, $route){
   $scope.view = {};
   $scope.view.items = InventoryService.bag
+  $scope.view.bagCount = InventoryService.bag.length
+  $scope.view.total = function(){
+    return InventoryService.getTotal(InventoryService.bag)
+  }
 })

@@ -1,4 +1,4 @@
-app.service('InventoryService', function($http){
+app.service('InventoryService', function($http, $q){
   return {
     getInventory: function() {
       return $http.get('tea.json')
@@ -19,6 +19,16 @@ app.service('InventoryService', function($http){
     searchText: '',
     priceOrderer: '',
     bagTotalQuantity: 0,
-    bag: []
+    bag: [],
+    orderTotal: 1,
+    getTotal: function(array){
+        var total = 0
+        array.forEach(function(item){
+          var subtotal = item.quantity*(Number(item.item.price)/100)
+          total += subtotal
+        })
+        total.toFixed(2)
+        return total
+    }
   }
 });

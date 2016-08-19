@@ -1,6 +1,16 @@
+<div class="fixed-action-btn" style="bottom: 24px; left: 24px;">
+  <a href="/" class="waves-effect waves-light btn-floating green accent-3 left"><i class="large material-icons">arrow_back</i></a>
+</div>
+
 <div class='container'>
   <div class='section'>
+
+
+
     <div ng-repeat='item in view.items'>
+
+
+
       <div class='col s12 m10'>
         <div class='card horizontal'>
           <div class='card-image'>
@@ -40,7 +50,17 @@
 
       </div>
       </div>
-  </div>
+      </div>
 </div>
+
+
+
+</div>
+
+<div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
+  <a href="/checkout" class="waves-effect waves-light btn green accent-3 right">
+    <i class="material-icons left">input</i><strong>Purchase: {{ view.total() | currency}}</strong></a>
+</div>
+
 </div>
 </div>
