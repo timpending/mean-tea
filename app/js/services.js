@@ -18,5 +18,7 @@ app.service('InventoryService', function($http){
     },
     searchText: '',
     priceOrderer: '',
+    bagTotalQuantity: 0,
+    bag: []
   }
 });

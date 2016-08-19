@@ -1,0 +1,46 @@
+<div class='container'>
+  <div class='section'>
+    <div ng-repeat='item in view.items'>
+      <div class='col s12 m10'>
+        <div class='card horizontal'>
+          <div class='card-image'>
+            <img ng-src={{item.item.imageUrl}} />
+          </div>
+        <div class="card-stacked">
+          <div class="card-content">
+          <h4>{{item.item.name}}</h4>
+          <div class='row'>
+            <div class='col s6 m5 l5'>
+              <p><strong>Ingredients:</strong></p><p>{{item.item.ingredients}} </p>
+              <br>
+              <p><strong>Categories: </strong><ul><li ng-repeat='category in item.item.categories'>{{category}} </li></ul></p>
+            </div>
+            <div class='col s6 m5 l5 right'>
+              <p><strong>Caffiene:</strong> {{item.item.caffeineScale}} mg</p>
+              <h6><strong>Price:</strong> {{item.item.price | pricer}}</h6>
+              <p><strong>In Stock:</strong> {{item.item.inStock | stocker}}</p>
+              <p><strong>Rating:</strong> {{item.item.rating}}</p>
+            </div>
+          </div>
+        </div>
+
+      <div class="card-action">
+        <div class='row'>
+          <div class='col s3 m3'>
+            <h6><strong>Quantity: </strong>{{item.quantity}}</h6>
+          </div>
+          <div class='col s3 m3'>
+            <h6><strong>Price: </strong>{{item.item.price/100 | currency}}</h6>
+          </div>
+          <div class='col s6 m6'>
+            <h6><strong>Subtotal: </strong>{{(item.item.price/100 * item.quantity) | currency}}</h6>
+          </div>
+      </div>
+
+
+      </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>

@@ -30,9 +30,18 @@
     </div>
   </nav>
 
+  <div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
+    <a href="/checkout" class="waves-effect waves-light btn cyan accent-3 right"><i class="material-icons left">work</i><strong>Checkout |
+      <ng-pluralize count="view.bagCount"
+           when="{'0': 'Empty',
+               'one': '{} item',
+               'other': '{} items'}">
+      </ng-pluralize></strong></a>
+  </div>
+
   <div class='container'>
     <div class='section'>
-      <div ng-repeat="tea in view.teaArray | orderBy: 'price' | filter: view.searchText">
+      <div ng-repeat="tea in view.teaArray | orderBy: 'view.priceOrderer' | filter: view.searchText">
         <div class="col s12 m10">
           <div class="card horizontal">
             <div class="card-image">
@@ -48,7 +57,7 @@
                   <p><strong>Categories: </strong><ul><li ng-repeat='category in tea.categories'>{{category}} </li></ul></p>
                 </div>
                 <div class='col s6 m5 l5 right'>
-                  <p><strong>Caffiene:</strong> {{tea.caffeineScale}} mg</p>
+                  <p><strong>Caffiene: </strong> {{tea.caffeineScale}} mg</p>
                   <h6><strong>Price:</strong> {{tea.price | pricer}}</h6>
                   <p><strong>In Stock:</strong> {{tea.inStock | stocker}}</p>
                   <p><strong>Rating:</strong> {{tea.rating}}</p>
@@ -63,12 +72,11 @@
                 </div>
                 <div class='col s6 m6 l5'>
                   <p class="range-field">
-                    <input type="range" value="0" min="0" max="20" step='1' />
+                    <input type="range" value="1" min="1" max="20" step='1' ng-model='tea.view.quantity'/>
                   </p>
                 </div>
                   <div class='col s3 m4 l5'>
-                    <p>
-                    <a class="waves-effect waves-light btn green accent-3 right"><i class="material-icons left">add</i>Add to Bag</a></p>
+                    <p><a class="waves-effect waves-light btn green accent-3 right" ng-click='addToBag(tea.view.quantity, tea)'><i class="material-icons left">add</i>Add to Bag</a></p>
                   </div>
                 </form>
               </div>

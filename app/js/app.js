@@ -6,6 +6,10 @@ var app = angular.module('meanTea', ['ngRoute']);
         templateUrl: 'partials/inventory.html',
         controller: 'InventoryController'
       })
+      .when('/checkout', {
+        templateUrl: 'partials/checkout.html',
+        controller: 'CheckoutController'
+      })
       .otherwise('/')
     $locationProvider.html5Mode(true);
   })
