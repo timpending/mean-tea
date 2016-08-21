@@ -45,7 +45,7 @@
                         <div class="card-action">
                             <div class='row'>
                                 <div class='col s2 m2'>
-                                    <a class="waves-effect waves-light btn-floating btn-small  deep-orange darken-1 left"><i class="small material-icons">remove_shopping_cart</i></a>
+                                    <a ng-click='removeItem($index)' class="waves-effect waves-light btn-floating btn-small  deep-orange darken-1 left"><i class="small material-icons">remove_shopping_cart</i></a>
                                 </div>
                                 <div class='col s3 m3'>
                                     <h6 class='right'><strong>Quantity: </strong>{{item.quantity}}</h6>
@@ -54,7 +54,7 @@
                                     <div class='row'>
                                        <div class="col s12">
                                          <div ng-show='view.updateQtyView'>
-                                             <div class='input-field'><input type='number' ng-model='view.newQty' /></div>
+                                             <div class='input-field'><input type='number' ng-model='view.newQty' step='1' min='1' /></div>
                                          </div>
 
                                       </div>
