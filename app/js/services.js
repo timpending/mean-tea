@@ -29,9 +29,6 @@ app.service('InventoryService', function($http, $q){
         })
         total.toFixed(2)
         return total
-    },
-    // saveNewQty: function(newqty){
-    //
-    // }
+    }
   }
 });
