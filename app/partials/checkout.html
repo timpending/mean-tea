@@ -1,66 +1,94 @@
 <div class="fixed-action-btn" style="bottom: 24px; left: 24px;">
-  <a href="/" class="waves-effect waves-light btn-floating green accent-3 left"><i class="large material-icons">arrow_back</i></a>
+    <a href="/" class="waves-effect waves-light btn-floating green accent-3 left"><i class="large material-icons">arrow_back</i></a>
 </div>
 
 <div class='container'>
-  <div class='section'>
+    <div class='section'>
 
-
-
-    <div ng-repeat='item in view.items'>
-
-
-
-      <div class='col s12 m10'>
-        <div class='card horizontal'>
-          <div class='card-image'>
-            <img ng-src={{item.item.imageUrl}} />
-          </div>
-        <div class="card-stacked">
-          <div class="card-content">
-          <h4>{{item.item.name}}</h4>
-          <div class='row'>
-            <div class='col s6 m5 l5'>
-              <p><strong>Ingredients:</strong></p><p>{{item.item.ingredients}} </p>
-              <br>
-              <p><strong>Categories: </strong><ul><li ng-repeat='category in item.item.categories'>{{category}} </li></ul></p>
-            </div>
-            <div class='col s6 m5 l5 right'>
-              <p><strong>Caffiene:</strong> {{item.item.caffeineScale}} mg</p>
-              <h6><strong>Price:</strong> {{item.item.price | pricer}}</h6>
-              <p><strong>In Stock:</strong> {{item.item.inStock | stocker}}</p>
-              <p><strong>Rating:</strong> {{item.item.rating}}</p>
-            </div>
-          </div>
+        <div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
+            <a href="/checkout" class="waves-effect waves-light btn green accent-3 right">
+                <i class="material-icons left">input</i><strong>Purchase: {{ view.total() | currency}}</strong></a>
         </div>
 
-      <div class="card-action">
-        <div class='row'>
-          <div class='col s3 m3'>
-            <h6><strong>Quantity: </strong>{{item.quantity}}</h6>
-          </div>
-          <div class='col s3 m3'>
-            <h6><strong>Price: </strong>{{item.item.price/100 | currency}}</h6>
-          </div>
-          <div class='col s6 m6'>
-            <h6><strong>Subtotal: </strong>{{(item.item.price/100 * item.quantity) | currency}}</h6>
-          </div>
-      </div>
-
-
-      </div>
-      </div>
-      </div>
-</div>
+        <div ng-repeat='item in view.items'>
 
 
 
-</div>
+            <div class='col s12 m10'>
+                <div class='card horizontal'>
+                    <div class='card-image'>
+                        <img ng-src={{item.item.imageUrl}} />
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <h4>{{item.item.name}}</h4>
+                            <div class='row'>
+                                <div class='col s6 m5 l5'>
+                                    <p><strong>Ingredients:</strong></p>
+                                    <p>{{item.item.ingredients}} </p>
+                                    <br>
+                                    <p><strong>Categories: </strong>
+                                        <ul>
+                                            <li ng-repeat='category in item.item.categories'>{{category}} </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                                <div class='col s6 m5 l5 right'>
+                                    <p><strong>Caffiene:</strong> {{item.item.caffeineScale}} mg</p>
+                                    <h6><strong>Price:</strong> {{item.item.price | pricer}}</h6>
+                                    <p><strong>In Stock:</strong> {{item.item.inStock | stocker}}</p>
+                                    <p><strong>Rating:</strong> {{item.item.rating}}</p>
+                                </div>
+                            </div>
+                        </div>
 
-<div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
-  <a href="/checkout" class="waves-effect waves-light btn green accent-3 right">
-    <i class="material-icons left">input</i><strong>Purchase: {{ view.total() | currency}}</strong></a>
-</div>
+                        <div class="card-action">
+                            <div class='row'>
+                                <div class='col s2 m2'>
+                                    <a class="waves-effect waves-light btn-floating btn-small  deep-orange darken-1 left"><i class="small material-icons">remove_shopping_cart</i></a>
+                                </div>
+                                <div class='col s3 m3'>
+                                    <h6 class='right'><strong>Quantity: </strong>{{item.quantity}}</h6>
+                                    <a href='#' ng-click='showUpdateQty()' ng-show='view.notUpdateQtyView' class="waves-effect waves-light btn-floating btn-small cyan left"><i class="small material-icons">mode_edit</i></a>
+                                    <div ng-click='saveQty()' ng-show='view.updateQtyView' class="tiny waves-effect waves-light btn-floating btn-small green accent-3 left"><i class="tiny material-icons">save</i></div>
+                                    <div class='row'>
+                                       <div class="col s12">
+                                         <div ng-show='view.updateQtyView'>
+                                             <div class='input-field'><input type='number' ng-model='view.newQty' /></div>
+                                         </div>
 
-</div>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class='col s3 m3'>
+                                    <h6 class='right'><strong>Price: </strong>{{item.item.price/100 | currency}}</h6>
+                                </div>
+                                <div class='col s4 m4'>
+                                    <h6 class='right'><strong>Subtotal: </strong>{{(item.item.price/100 * item.quantity) | currency}}</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal Structure -->
+                        <!-- <div id="demoModal" class="modal">
+            <div class="modal-content">
+                <h4>Modal header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div> -->
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
 </div>

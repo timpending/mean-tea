@@ -17,12 +17,24 @@ app.controller('InventoryController', function($scope, InventoryService, $route)
   $scope.addToBag = function(qty, tea){
     if (typeof(qty) == "undefined"){
       qty = 1
-      InventoryService.bag.push({quantity: qty, item: tea})
+      item = {};
+      item.id = tea._id
+      item.item = tea;
+      item.quantity = qty;
+      InventoryService.bag.push(item)
     } else {
-      InventoryService.bag.push({quantity: qty, item: tea})
+      item = {};
+      item.id = tea._id
+      item.item = tea;
+      item.quantity = qty;
+      InventoryService.bag.push(item)
     }
     $scope.view.bagCount = InventoryService.bag.length
-  }
+  };
+  $scope.select = {
+    value: "Option1",
+    choices: ["Option1", "I'm an option", "This is materialize", "No, this is Patrick."]
+  };
 
 });
 
@@ -30,7 +42,19 @@ app.controller('CheckoutController', function($scope, InventoryService, $route){
   $scope.view = {};
   $scope.view.items = InventoryService.bag
   $scope.view.bagCount = InventoryService.bag.length
+  $scope.view.updateQtyView = false
+  $scope.view.notUpdateQtyView = true
   $scope.view.total = function(){
     return InventoryService.getTotal(InventoryService.bag)
   }
+  $scope.showUpdateQty = function(){
+      $scope.view.updateQtyView = !$scope.view.updateQtyView
+      $scope.view.notUpdateQtyView = !$scope.view.notUpdateQtyView
+   }
+   $scope.saveQty = function(){
+     item.quantity = $scope.view.newQty
+     $scope.view.updateQtyView = false
+     $scope.view.notUpdateQtyView = true
+   }
+
 })
