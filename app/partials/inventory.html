@@ -8,9 +8,9 @@
       </ul>
 
       <ul id='categoryDrop' class='dropdown-content'>
-        <li ng-repeat='category in view.teaArray.categories'><a href='javascript:void(0);'>{{category}}</a></li>
+        <li ng-repeat='category in view.categoryArray'><a href='javascript:void(0);' ng-click='sortByCategory(category)'>{{category}}</a></li>
       </ul>
-      <ul id='priceDrop'  ng-model='view.priceSelection' class='dropdown-content'>
+      <ul id='priceDrop' class='dropdown-content'>
           <li ng-click="sortByPrice('price')"><a href='javascript:void(0);'>Lowest</a></li>
           <li ng-click="sortByPrice('-price')"><a href='javascript:void(0);'>Highest</a></li>
       </ul>
@@ -40,7 +40,7 @@
 
   <div class='container'>
     <div class='section'>
-      <div ng-repeat="tea in view.teaArray | orderBy: view.priceOrderer | filter: view.searchText">
+      <div ng-repeat="tea in view.teaArray | orderBy: view.priceOrderer | filter: view.searchText | filter: view.catSort">
         <div class="col s12 m10">
           <div class="card horizontal">
             <div class="card-image">

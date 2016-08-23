@@ -3,21 +3,18 @@ app.controller('InventoryController', function($scope, InventoryService, $route)
   InventoryService.getInventory().then(function(allTeas){
     $scope.view.teaArray = allTeas.data
   });
-  // InventoryService.getCategories().then(function(results){
-  //   console.log(results);
-  //   // InventoryService.categoryArray = results
-  //   // console.log(InventoryService.categoryArray);
-  //   $scope.view.categoryArray = results
-  //   // $route.reload();
-  // });
+  InventoryService.getCategories().then(function(results){
+    $scope.view.categoryArray = results
+  });
   $scope.sortByPrice = function(priceSelection){
     if (priceSelection == 'price'){
-      console.log($scope.view.priceOrderer);
       $scope.view.priceOrderer = 'price'
     } else {
-      console.log($scope.view.priceOrderer);
       $scope.view.priceOrderer = '-price'
     }
+  }
+  $scope.sortByCategory = function(catSelection){
+    $scope.view.catSort = catSelection
   }
   $scope.view.bagCount = InventoryService.bag.length;
   $scope.addToBag = function(qty, tea){
@@ -37,11 +34,6 @@ app.controller('InventoryController', function($scope, InventoryService, $route)
     }
     $scope.view.bagCount = InventoryService.bag.length
   };
-  $scope.select = {
-    value: "Option1",
-    choices: ["Option1", "I'm an option", "This is materialize", "No, this is Patrick."]
-  };
-
 });
 
 app.controller('CheckoutController', function($scope, InventoryService, $route){
@@ -54,12 +46,10 @@ app.controller('CheckoutController', function($scope, InventoryService, $route){
     return InventoryService.getTotal(InventoryService.bag)
   }
   $scope.showUpdateQty = function(){
-
       $scope.view.updateQtyView = !$scope.view.updateQtyView
       $scope.view.notUpdateQtyView = !$scope.view.notUpdateQtyView
    }
    $scope.saveQty = function(){
-     if ($scope.view.newQty)
      if (typeof($scope.view.newQty) == "undefined" || $scope.view.newQty == '' || $scope.view.newQty == null){
      } else {
       item.quantity = $scope.view.newQty
