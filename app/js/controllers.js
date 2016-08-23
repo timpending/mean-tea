@@ -10,9 +10,15 @@ app.controller('InventoryController', function($scope, InventoryService, $route)
   //   $scope.view.categoryArray = results
   //   // $route.reload();
   // });
-  // $scope.sortByPrice = function(){
-  //   $scope.view.priceOrderer = 'price'
-  // }
+  $scope.sortByPrice = function(priceSelection){
+    if (priceSelection == 'price'){
+      console.log($scope.view.priceOrderer);
+      $scope.view.priceOrderer = 'price'
+    } else {
+      console.log($scope.view.priceOrderer);
+      $scope.view.priceOrderer = '-price'
+    }
+  }
   $scope.view.bagCount = InventoryService.bag.length;
   $scope.addToBag = function(qty, tea){
     if (typeof(qty) == "undefined"){
@@ -48,6 +54,7 @@ app.controller('CheckoutController', function($scope, InventoryService, $route){
     return InventoryService.getTotal(InventoryService.bag)
   }
   $scope.showUpdateQty = function(){
+
       $scope.view.updateQtyView = !$scope.view.updateQtyView
       $scope.view.notUpdateQtyView = !$scope.view.notUpdateQtyView
    }

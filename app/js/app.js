@@ -1,4 +1,4 @@
-var app = angular.module('meanTea', ['ngRoute']);
+var app = angular.module('meanTea', ['ngRoute', 'ui.materialize']);
 
   app.config(function($routeProvider, $locationProvider){
     $routeProvider

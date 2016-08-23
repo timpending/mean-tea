@@ -3,19 +3,16 @@
       <a id="logo-container" href="#" class="brand-logo">Tea Like You Mean It</a>
       <ul class="right hide-on-med-and-down">
         <li><input type='search' placeholder="Search by Name" ng-model='view.searchText' /></li>
-        <li><a class="dropdown-button" href="#!" data-activates="categoryDrop" dropdown>Category Filter<i class="material-icons right">arrow_drop_down</i></a></li>
-        <li>
-          <a class="dropdown-button" href="javascript:void(0);" data-activates="priceDrop" dropdown>Sort By Price<i class="material-icons right">arrow_drop_down</i></a>
-        </li>
+        <li><a class="dropdown-button" href="javascript:void(0);" data-activates="categoryDrop" dropdown data-hover="true">Category Filter<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" href="javascript:void(0);" data-activates="priceDrop" dropdown data-hover="true">Sort By Price<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
 
       <ul id='categoryDrop' class='dropdown-content'>
-        <li><a href='javascript:void(0);'>hello</a></li>
-        <li><a href='javascript:void(0);'>goodbye</a></li>
+        <li ng-repeat='category in view.teaArray.categories'><a href='javascript:void(0);'>{{category}}</a></li>
       </ul>
-      <ul id='priceDrop' class='dropdown-content'>
-          <li ng-click="sortByPrice()"><a href='javascript:void(0);'>Lowest</a></li>
-          <li ng-click="sortByPrice()"><a href='javascript:void(0);'>Highest</a></li>
+      <ul id='priceDrop'  ng-model='view.priceSelection' class='dropdown-content'>
+          <li ng-click="sortByPrice('price')"><a href='javascript:void(0);'>Lowest</a></li>
+          <li ng-click="sortByPrice('-price')"><a href='javascript:void(0);'>Highest</a></li>
       </ul>
 
       <!-- <ul id="nav-mobile" class="side-nav">
@@ -43,7 +40,7 @@
 
   <div class='container'>
     <div class='section'>
-      <div ng-repeat="tea in view.teaArray | orderBy: 'view.priceOrderer' | filter: view.searchText">
+      <div ng-repeat="tea in view.teaArray | orderBy: view.priceOrderer | filter: view.searchText">
         <div class="col s12 m10">
           <div class="card horizontal">
             <div class="card-image">
