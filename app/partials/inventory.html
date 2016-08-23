@@ -40,7 +40,7 @@
 
   <div class='container'>
     <div class='section'>
-      <div ng-repeat="tea in view.teaArray | orderBy: view.priceOrderer | filter: view.searchText | filter: view.catSort">
+      <div ng-repeat="tea in view.teaArray | orderBy: view.priceOrderer | filter: view.searchText | filter: {categories: view.catSort}">
         <div class="col s12 m10">
           <div class="card horizontal">
             <div class="card-image">
