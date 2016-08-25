@@ -46,13 +46,11 @@ app.controller('CheckoutController', function($scope, InventoryService, $route){
   $scope.view.items = InventoryService.bag
   $scope.view.bagCount = InventoryService.bag.length
   $scope.view.updateQtyView = false
-  $scope.view.notUpdateQtyView = true
   $scope.view.total = function(){
     return InventoryService.getTotal(InventoryService.bag)
   }
   $scope.showUpdateQty = function(){
       $scope.view.updateQtyView = !$scope.view.updateQtyView
-      $scope.view.notUpdateQtyView = !$scope.view.notUpdateQtyView
    }
    $scope.saveQty = function(){
      if (typeof($scope.view.newQty) == "undefined" || $scope.view.newQty == '' || $scope.view.newQty == null){
@@ -60,7 +58,6 @@ app.controller('CheckoutController', function($scope, InventoryService, $route){
       item.quantity = $scope.view.newQty
      }
      $scope.view.updateQtyView = false
-     $scope.view.notUpdateQtyView = true
    }
    $scope.removeItem = function (index){
      InventoryService.bag.splice(index, 1);

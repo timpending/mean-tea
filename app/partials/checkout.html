@@ -46,7 +46,7 @@
                             <div class='row'>
                                 <div class='col s2 m2'>
                                     <a ng-click='removeItem($index)' class="waves-effect waves-light btn-floating btn-small  deep-orange darken-1 left"><i class="small material-icons">remove_shopping_cart</i></a>
-                                    <a href='#' ng-click='showUpdateQty()' ng-show='view.notUpdateQtyView' class="waves-effect waves-light btn-floating btn-small cyan right"><i class="small material-icons">mode_edit</i></a>
+                                    <a href='#' ng-click='showUpdateQty()' ng-hide='view.updateQtyView' class="waves-effect waves-light btn-floating btn-small cyan right"><i class="small material-icons">mode_edit</i></a>
                                     <div ng-click='saveQty()' ng-show='view.updateQtyView' class="tiny waves-effect waves-light btn-floating btn-small green accent-3 right"><i class="tiny material-icons">save</i></div>
                                 </div>
                                 <div class='col s3 m3'>

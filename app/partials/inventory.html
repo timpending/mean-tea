@@ -68,7 +68,7 @@
                 <div class='row'>
                 <form action="#">
                 <div class='col s3 m2 l2'>
-                    <p><strong>Quantity: </strong></p>
+                    <p><strong>Quantity: </strong><span class='right' ng-if='!tea.view.quantity'>1</span><span class='right'>{{tea.view.quantity}}</span></p>
                 </div>
                 <div class='col s6 m6 l5'>
                   <p class="range-field">
