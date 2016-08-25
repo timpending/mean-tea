@@ -34,6 +34,11 @@ app.controller('InventoryController', function($scope, InventoryService, $route)
     }
     $scope.view.bagCount = InventoryService.bag.length
   };
+  $scope.clearFilters = function(){
+    $scope.view.priceOrderer = '';
+    $scope.view.searchText = '';
+    $scope.view.catSort = '';
+  }
 });
 
 app.controller('CheckoutController', function($scope, InventoryService, $route){
