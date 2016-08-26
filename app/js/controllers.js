@@ -27,7 +27,6 @@ app.controller('InventoryController', function($scope, InventoryService, $route)
 
     if (indexPos > -1) {
       if (typeof(qty) == "undefined"){
-        console.log(InventoryService.bag[indexPos]);
         InventoryService.bag[indexPos].quantity+=1
         InventoryService.bag[indexPos].newQty+=1
       } else {
