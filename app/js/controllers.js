@@ -17,27 +17,68 @@ app.controller('InventoryController', function($scope, InventoryService, $route)
     $scope.view.catSort = catSelection
   }
   $scope.view.bagCount = InventoryService.bag.length;
+
   $scope.addToBag = function(qty, tea){
-    if (typeof(qty) == "undefined"){
-      qty = 1
-      item = {};
-      item.id = tea._id
-      item.item = tea;
-      item.quantity = qty;
-      item.showUpdateQty = false;
-      item.newQty = qty
-      InventoryService.bag.push(item)
+    var idArray = []
+    InventoryService.bag.forEach(function(item){
+      idArray.push(item.id);
+    })
+    var indexPos = idArray.indexOf(tea._id)
+
+    if (indexPos > -1) {
+      if (typeof(qty) == "undefined"){
+        console.log(InventoryService.bag[indexPos]);
+        InventoryService.bag[indexPos].quantity+=1
+        InventoryService.bag[indexPos].newQty+=1
+      } else {
+        InventoryService.bag[indexPos].quantity+= Number(qty)
+        InventoryService.bag[indexPos].newQty+= Number(qty)
+      }
     } else {
-      item = {};
-      item.id = tea._id
-      item.item = tea;
-      item.quantity = qty;
-      item.showUpdateQty = false;
-      item.newQty = qty
-      InventoryService.bag.push(item)
+      if (typeof(qty) == "undefined"){
+        qty = 1
+        item = {};
+        item.id = tea._id
+        item.item = tea;
+        item.quantity = Number(qty);
+        item.showUpdateQty = false;
+        item.newQty = Number(qty)
+        InventoryService.bag.push(item)
+      } else {
+        item = {};
+        item.id = tea._id
+        item.item = tea;
+        item.quantity = Number(qty);
+        item.showUpdateQty = false;
+        item.newQty = Number(qty)
+        InventoryService.bag.push(item)
     }
+  }
     $scope.view.bagCount = InventoryService.bag.length
-  };
+  }
+
+  // $scope.addToBag = function(qty, tea){
+  //   if (typeof(qty) == "undefined"){
+  //     qty = 1
+  //     item = {};
+  //     item.id = tea._id
+  //     item.item = tea;
+  //     item.quantity = qty;
+  //     item.showUpdateQty = false;
+  //     item.newQty = qty
+  //     InventoryService.bag.push(item)
+  //   } else {
+  //     item = {};
+  //     item.id = tea._id
+  //     item.item = tea;
+  //     item.quantity = qty;
+  //     item.showUpdateQty = false;
+  //     item.newQty = qty
+  //     InventoryService.bag.push(item)
+  //   }
+  //   $scope.view.bagCount = InventoryService.bag.length
+  // };
+
   $scope.clearFilters = function(){
     $scope.view.priceOrderer = '';
     $scope.view.searchText = '';
