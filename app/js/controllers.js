@@ -24,12 +24,16 @@ app.controller('InventoryController', function($scope, InventoryService, $route)
       item.id = tea._id
       item.item = tea;
       item.quantity = qty;
+      item.showUpdateQty = false;
+      item.newQty = qty
       InventoryService.bag.push(item)
     } else {
       item = {};
       item.id = tea._id
       item.item = tea;
       item.quantity = qty;
+      item.showUpdateQty = false;
+      item.newQty = qty
       InventoryService.bag.push(item)
     }
     $scope.view.bagCount = InventoryService.bag.length
@@ -45,19 +49,19 @@ app.controller('CheckoutController', function($scope, InventoryService, $route){
   $scope.view = {};
   $scope.view.items = InventoryService.bag
   $scope.view.bagCount = InventoryService.bag.length
-  $scope.view.updateQtyView = false
   $scope.view.total = function(){
     return InventoryService.getTotal(InventoryService.bag)
   }
-  $scope.showUpdateQty = function(){
-      $scope.view.updateQtyView = !$scope.view.updateQtyView
+  $scope.showUpdateQty = function(index){
+      InventoryService.bag[index].showUpdateQty = true;
    }
-   $scope.saveQty = function(){
-     if (typeof($scope.view.newQty) == "undefined" || $scope.view.newQty == '' || $scope.view.newQty == null){
+   $scope.saveQty = function(num){
+     var newQty = InventoryService.bag[num].newQty
+     if (typeof(newQty) == "undefined" || newQty == '' || newQty == null){
      } else {
-      item.quantity = $scope.view.newQty
+      InventoryService.bag[num].quantity = newQty
      }
-     $scope.view.updateQtyView = false
+    InventoryService.bag[num].showUpdateQty = false;
    }
    $scope.removeItem = function (index){
      InventoryService.bag.splice(index, 1);

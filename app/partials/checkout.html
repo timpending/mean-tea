@@ -46,15 +46,15 @@
                             <div class='row'>
                                 <div class='col s2 m2'>
                                     <a ng-click='removeItem($index)' class="waves-effect waves-light btn-floating btn-small  deep-orange darken-1 left"><i class="small material-icons">remove_shopping_cart</i></a>
-                                    <a href='#' ng-click='showUpdateQty()' ng-hide='view.updateQtyView' class="waves-effect waves-light btn-floating btn-small cyan right"><i class="small material-icons">mode_edit</i></a>
-                                    <div ng-click='saveQty()' ng-show='view.updateQtyView' class="tiny waves-effect waves-light btn-floating btn-small green accent-3 right"><i class="tiny material-icons">save</i></div>
+                                    <a href='#' ng-click='showUpdateQty($index)' ng-hide='item.showUpdateQty' class="waves-effect waves-light btn-floating btn-small cyan right"><i class="small material-icons">mode_edit</i></a>
+                                    <div ng-click='saveQty($index)' ng-show='item.showUpdateQty' class="tiny waves-effect waves-light btn-floating btn-small green accent-3 right"><i class="tiny material-icons">save</i></div>
                                 </div>
                                 <div class='col s3 m3'>
                                     <h6 class='center'><strong>Quantity: </strong>{{item.quantity}}</h6>
                                     <div class='row'>
                                        <div class="col s12">
-                                         <div ng-show='view.updateQtyView'>
-                                             <div class='input-field'><input type='number' ng-model='view.newQty' step='1' min='1' autofocus/></div>
+                                         <div ng-show='item.showUpdateQty'>
+                                             <div class='input-field'><input type='number' ng-model='item.newQty' step='1' min='1' autofocus/></div>
                                          </div>
 
                                       </div>
