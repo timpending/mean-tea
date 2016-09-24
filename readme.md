@@ -1,4 +1,4 @@
-# Clique Messenger
+# ng-Mean Tea
 
 An Angular shopping cart exercise featuring tea products.
 
